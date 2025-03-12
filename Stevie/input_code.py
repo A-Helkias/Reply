@@ -1,5 +1,3 @@
-# input_processor.py
-
 import os
 
 def read_input(file_path):
@@ -26,12 +24,16 @@ def read_input(file_path):
     
     return D, resources, turns
 
-def process_multiple_files(input_folder):
-    all_data = []
-    
-    for file_name in sorted(os.listdir(input_folder)):
-        input_path = os.path.join(input_folder, file_name)
-        D, resources, turns = read_input(input_path)
-        all_data.append((D, resources, turns))
-    
-    return all_data
+def process_single_file(input_file):
+    D, resources, turns = read_input(input_file)
+    return [(D, resources, turns)]
+
+# Example usage
+input_file = "0-demo.txt"  
+all_data = process_single_file(input_file)
+
+# Print data to verify
+for D, resources, turns in all_data:
+    print("Initial Value (D, R, T):", D, len(resources), len(turns))
+    print("Resources:", resources)
+    print("Turns:", turns)
