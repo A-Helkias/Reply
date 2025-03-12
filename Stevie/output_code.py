@@ -1,4 +1,4 @@
-from input_processor import process_single_file
+from input_code import process_single_file
 
 def apply_special_effects(resources, active_resources, turns):
     """ Apply special effects from active resources."""
