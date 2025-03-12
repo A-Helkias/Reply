@@ -1,4 +1,6 @@
-from input_processor import process_multiple_files
+# output_processor.py
+
+from input_processor import process_single_file
 
 def apply_special_effects(resources, active_resources, turns):
     """ Apply special effects from active resources."""
@@ -62,17 +64,20 @@ def write_output(file_path, purchases):
     with open(file_path, 'w') as file:
         file.write("\n".join(purchases) + "\n")
 
-def process_and_output(input_folder, output_file):
-    all_data = process_multiple_files(input_folder)
+def process_and_output(input_file, output_file):
+    # Process a single input file
+    all_data = process_single_file(input_file)
     all_purchases = []
     
     for D, resources, turns in all_data:
         purchases = choose_resources(D, resources, turns)
         all_purchases.extend(purchases)
     
+    # Write the output to the specified file
     write_output(output_file, all_purchases)
 
 # Example usage
-input_folder = "input_files"  # Path to your input files
+input_file = "0-demo.txt"  # Path to your input file
 output_file = "final_output.txt"  # Output file path
-process_and_output(input_folder, output_file)
+process_and_output(input_file, output_file)
+
