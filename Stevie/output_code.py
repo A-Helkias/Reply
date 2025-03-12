@@ -1,5 +1,3 @@
-# output_processor.py
-
 from input_processor import process_single_file
 
 def apply_special_effects(resources, active_resources, turns):
